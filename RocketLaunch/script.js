@@ -20,7 +20,9 @@ setInterval(function(){
 
 function def(){
     setPage('https://launchlibrary.net/1.4/launch/next/5');
+    document.getElementById('head').innerHTML = "Next 5 Launches"
 }
+
 function setPage (NextFiveURL){
     var listArr = document.getElementsByTagName('li');
     var next = document.getElementById('timer');
@@ -46,12 +48,15 @@ def();
 document.getElementById('nextfive').addEventListener("click", def);
 document.getElementById('nextfivefalcon').addEventListener("click", function(){
     setPage('https://launchlibrary.net/1.4/launch?name=falcon&next=5')
+    document.getElementById('head').innerHTML = "Next 5 Falcon Launches"
 });
 document.getElementById('nextfiveariane').addEventListener("click", function(){
     setPage('https://launchlibrary.net/1.4/launch?name=ariane&next=5')
+    document.getElementById('head').innerHTML = "Next 5 Ariane Launches"
 });
 document.getElementById('nextfivelauncherone').addEventListener("click", function(){
     setPage('https://launchlibrary.net/1.4/launch?name=launcherone&next=5')
+    document.getElementById('head').innerHTML = "Next 5 LauncherOne Launches"
 });
 
 

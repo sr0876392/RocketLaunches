@@ -1,6 +1,5 @@
 li {
     list-style: none;
     border: 1px solid black;
-    display: flex;
-    height: 64px;
+    height: 50px;
 }
