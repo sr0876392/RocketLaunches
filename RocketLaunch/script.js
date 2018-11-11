@@ -19,7 +19,7 @@ setInterval(function(){
 },1000)
 
 function def(){
-    setPage('https://launchlibrary.net/1.4/launch/next/5');
+    setPage('https://launchlibrary.net/1.4/launch?next=5');
     document.getElementById('head').innerHTML = "Next 5 Launches"
 }
 
@@ -28,6 +28,7 @@ function setPage (NextFiveURL){
     var next = document.getElementById('timer');
     $.getJSON(NextFiveURL, function(data){
         var date = data.launches[0].windowstart;
+
         parsedDate = new Date (Date.parse(date))
         var newParsedDate = parsedDate;
         newParsedDate = parsedDate.toLocaleDateString("en-US", {weekday: 'short', month: 'short', year: 'numeric', day: 'numeric'});
@@ -35,7 +36,7 @@ function setPage (NextFiveURL){
         for(var i = 0; i < listArr.length; i++){
             var launches = data.launches[i];
             if (launches != undefined) {
-                listArr[i].innerHTML = launches.name + "<br>" +launches.windowstart;
+                listArr[i].innerHTML = "<strong> Rocket Type: </strong>" + launches.name + "<br>" + "<strong>Date/Time: </strong>" + launches.windowstart;
             }
             else{
                 listArr[i].innerHTML = "";
@@ -45,6 +46,7 @@ function setPage (NextFiveURL){
    
 }
 def();
+//document.getElementById('nextfive').addEventListener("click", def);
 document.getElementById('nextfive').addEventListener("click", def);
 document.getElementById('nextfivefalcon').addEventListener("click", function(){
     setPage('https://launchlibrary.net/1.4/launch?name=falcon&next=5')
